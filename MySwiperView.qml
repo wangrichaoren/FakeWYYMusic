@@ -16,7 +16,7 @@ Rectangle{
         Repeater{
             model: 13
             Image {
-                source: index+".jpg"
+                source: "swip_imgs/"+index+".jpg"
                 fillMode: Image.PreserveAspectFit
             }
         }

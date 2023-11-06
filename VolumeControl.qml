@@ -25,7 +25,7 @@ Item {
             opacity:0.5
             Image {
                 anchors.centerIn: parent
-                source: btnState===true?"window_vol_on.svg":"window_vol_off.svg"
+                source: btnState===true?"window_icons/window_vol_on.svg":"window_icons/window_vol_off.svg"
                 sourceSize.width: root.icon_size
                 sourceSize.height: root.icon_size
             }

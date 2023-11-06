@@ -49,7 +49,7 @@ Window  {
 
     // 背景
     Rectangle{
-        property string bgsource: "background1.jpg"
+        property string bgsource: "bg_imgs/background1.jpg"
         id:background
         anchors.centerIn: parent
         anchors.fill: parent
@@ -98,7 +98,7 @@ Window  {
                 anchors.bottomMargin: 2
                 sourceSize.width: 28
                 sourceSize.height: 28
-                source: "wyyyycircle.svg"
+                source: "window_icons/wyyyycircle.svg"
                 antialiasing: true
                 fillMode: Image.PreserveAspectFit
             }
@@ -166,23 +166,23 @@ Window  {
 
             // 第一部分选项按钮
             ListElement{
-                m_icon_path:"face_wwtj.svg"
+                m_icon_path:"window_icons/face_wwtj.svg"
                 m_text:"为我推荐"
             }
             ListElement{
-                m_icon_path:"face_yyyjx.svg"
+                m_icon_path:"window_icons/face_yyyjx.svg"
                 m_text:"云音乐精选"
             }
             ListElement{
-                m_icon_path:"face_bk.svg"
+                m_icon_path:"window_icons/face_bk.svg"
                 m_text:"博客"
             }
             ListElement{
-                m_icon_path:"face_srmy.svg"
+                m_icon_path:"window_icons/face_srmy.svg"
                 m_text:"私人漫游"
             }
             ListElement{
-                m_icon_path:"face_sq.svg"
+                m_icon_path:"window_icons/face_sq.svg"
                 m_text:"社区"
             }
             // 分割线1
@@ -192,31 +192,31 @@ Window  {
             }
             // 第二部分选项按钮
             ListElement{
-                m_icon_path:"face_wxhdyy.svg"
+                m_icon_path:"window_icons/face_wxhdyy.svg"
                 m_text:"我喜欢的音乐"
             }
             ListElement{
-                m_icon_path:"face_zjbf.svg"
+                m_icon_path:"window_icons/face_zjbf.svg"
                 m_text:"最近播放"
             }
             ListElement{
-                m_icon_path:"face_wdbk.svg"
+                m_icon_path:"window_icons/face_wdbk.svg"
                 m_text:"我的博客"
             }
             ListElement{
-                m_icon_path:"face_wdsc.svg"
+                m_icon_path:"window_icons/face_wdsc.svg"
                 m_text:"我的收藏"
             }
             ListElement{
-                m_icon_path:"face_xzsl.svg"
+                m_icon_path:"window_icons/face_xzsl.svg"
                 m_text:"下载数量"
             }
             ListElement{
-                m_icon_path:"face_bdyy.svg"
+                m_icon_path:"window_icons/face_bdyy.svg"
                 m_text:"本地音乐"
             }
             ListElement{
-                m_icon_path:"face_wdyyyp.svg"
+                m_icon_path:"window_icons/face_wdyyyp.svg"
                 m_text:"我的音乐云盘"
             }
             // 分割线2
@@ -311,7 +311,7 @@ Window  {
 
         // 心动模式 按钮
         NormalBtn{
-            icon_path: "window_xdms.svg"
+            icon_path: "window_icons/window_xdms.svg"
             icon_size: 30
             anchors.right: playbtns.left
             anchors.rightMargin: 50
@@ -325,7 +325,7 @@ Window  {
 
         // 歌词 按钮
         NormalBtn{
-            icon_path: "window_c.svg"
+            icon_path: "window_icons/window_c.svg"
             icon_size: 22
             anchors.left: playbtns.right
             anchors.leftMargin: 18
@@ -347,7 +347,7 @@ Window  {
 
             ImageNoEffBtn{
                 id:wind_left
-                icon_path: "window_left.svg"
+                icon_path: "window_icons/window_left.svg"
                 onClicked: {
                     msg_popup.msg="上一首功能\n未实现"
                     msg_popup.open()
@@ -357,7 +357,7 @@ Window  {
             CircleBtn{
                 id:wind_play
 
-                icon_path: windowapp.is_play?"window_pause.svg":"window_play.svg"
+                icon_path: windowapp.is_play?"window_icons/window_pause.svg":"window_icons/window_play.svg"
 
                 onClicked: {
                     windowapp.is_play=!windowapp.is_play
@@ -368,7 +368,7 @@ Window  {
 
             ImageNoEffBtn{
                 id:wind_right
-                icon_path: "window_right.svg"
+                icon_path: "window_icons/window_right.svg"
                 onClicked: {
                     msg_popup.msg="下一首功能\n未实现"
                     msg_popup.open()
@@ -498,7 +498,7 @@ Window  {
                 spacing: 5
                 ImageNoEffBtn{
                     icon_size: 18
-                    icon_path: "window_like.svg"
+                    icon_path: "window_icons/window_like.svg"
                     onClicked: {
                         msg_popup.msg="喜欢功能\n未实现"
                         msg_popup.open()
@@ -506,7 +506,7 @@ Window  {
                 }
                 ImageNoEffBtn{
                     icon_size: 18
-                    icon_path: "window_pl.svg"
+                    icon_path: "window_icons/window_pl.svg"
                     onClicked: {
                         msg_popup.msg="查看评论功能\n未实现"
                         msg_popup.open()
@@ -514,7 +514,7 @@ Window  {
                 }
                 ImageNoEffBtn{
                     icon_size: 18
-                    icon_path: "window_xz.svg"
+                    icon_path: "window_icons/window_xz.svg"
                     onClicked: {
                         msg_popup.msg="下载功能\n未实现"
                         msg_popup.open()
@@ -522,7 +522,7 @@ Window  {
                 }
                 ImageNoEffBtn{
                     icon_size: 18
-                    icon_path: "window_gd.svg"
+                    icon_path: "window_icons/window_gd.svg"
                     onClicked: {
                         msg_popup.msg="更多操作功能\n未实现"
                         msg_popup.open()
@@ -590,7 +590,7 @@ Window  {
 
             OpactityBtn{
                 icon_size: 20
-                icon_path: "window_yx.svg"
+                icon_path: "window_icons/window_yx.svg"
                 onClick: {
                     msg_popup.msg="音效功能\n未实现"
                     msg_popup.open()
@@ -601,7 +601,7 @@ Window  {
             OpactityBtn{
                 anchors.verticalCenter: volume_slider.verticalCenter
                 icon_size: 20
-                icon_path: "window_bflb.svg"
+                icon_path: "window_icons/window_bflb.svg"
                 onClick: {
                     msg_popup.msg="播放列表功能\n未实现"
                     msg_popup.open()
@@ -620,7 +620,7 @@ Window  {
         anchors.right: move_space.right
         anchors.rightMargin: 60
         anchors.top: move_space.bottom
-        icon_path: "window_close.svg"
+        icon_path: "window_icons/window_close.svg"
         onClicked: {
             windowapp.close()
         }
@@ -632,7 +632,7 @@ Window  {
         anchors.right: wind_close.right
         anchors.rightMargin: 30
         anchors.top: wind_close.bottom
-        icon_path: "window_max.svg"
+        icon_path: "window_icons/window_max.svg"
         onClicked: windowapp.toggleMaximized()
     }
 
@@ -642,7 +642,7 @@ Window  {
         anchors.right: wind_max.right
         anchors.rightMargin: 30
         anchors.top: wind_max.bottom
-        icon_path: "window_min.svg"
+        icon_path: "window_icons/window_min.svg"
         onClicked: {
             windowapp.showMinimized()
         }
@@ -654,7 +654,7 @@ Window  {
         anchors.right: wind_min.right
         anchors.rightMargin: 30
         anchors.top: wind_min.bottom
-        icon_path: "window_mini.svg"
+        icon_path: "window_icons/window_mini.svg"
         icon_size: 14
         onClicked: {
             msg_popup.msg="迷你模式功能\n未实现"
@@ -684,14 +684,14 @@ Window  {
         anchors.right: wind_mini.right
         anchors.rightMargin: 50
         anchors.top: wind_mini.bottom
-        icon_path: "window_hf.svg"
+        icon_path: "window_icons/window_hf.svg"
         icon_size: 20
         onClicked: {
             windowapp.bgcount+=1
             if (windowapp.bgcount===endvaue+1){
                 windowapp.bgcount=1
             }
-            background.bgsource="background"+windowapp.bgcount+".jpg"
+            background.bgsource="bg_imgs/"+"background"+windowapp.bgcount+".jpg"
         }
     }
 
@@ -701,7 +701,7 @@ Window  {
         anchors.right: wind_hf.right
         anchors.rightMargin: 30
         anchors.top: wind_hf.bottom
-        icon_path: "window_set.svg"
+        icon_path: "window_icons/window_set.svg"
         icon_size: 20
         onClicked: {
             msg_popup.msg="设置功能\n未实现"
@@ -715,7 +715,7 @@ Window  {
         anchors.right: wind_set.right
         anchors.rightMargin: 30
         anchors.top: wind_set.bottom
-        icon_path: "window_msg.svg"
+        icon_path: "window_icons/window_msg.svg"
         icon_size: 22
         onClicked: {
             msg_popup.msg="消息中心功能\n未实现"
@@ -735,7 +735,7 @@ Window  {
 
         // 返回按钮
         IconBoradBtn{
-            icon_path: "window_back.svg"
+            icon_path: "window_icons/window_back.svg"
             onClicked: {
                 msg_popup.msg="返回功能\n未实现"
                 msg_popup.open()
@@ -744,7 +744,7 @@ Window  {
 
         // 搜索控件
         SearchInputEdite{
-            icon_path: "window_find.svg"
+            icon_path: "window_icons/window_find.svg"
             onTexteEdt: {
                 console.log(mtxt)
             }
@@ -752,7 +752,7 @@ Window  {
 
         // 听歌识曲按钮
         IconBoradBtn{
-            icon_path: "window_tgsq.svg"
+            icon_path: "window_icons/window_tgsq.svg"
             mwidth: 33
             icon_size: 23
             onClicked: {
@@ -766,10 +766,10 @@ Window  {
     // -------------------------- 关于move area的所有逻辑 -----------------  [0]
     function toggleMaximized() {
         if (windowapp.visibility === Window.Maximized) {
-            wind_max.icon_path="window_max.svg"
+            wind_max.icon_path="window_icons/window_max.svg"
             windowapp.showNormal();
         } else {
-            wind_max.icon_path="window_reset.svg"
+            wind_max.icon_path="window_icons/window_reset.svg"
             windowapp.showMaximized();
         }
     }
@@ -834,7 +834,7 @@ Window  {
                 anchors.bottomMargin: 10
                 sourceSize.height: 60
                 sourceSize.width: 60
-                source: "jorker.svg"
+                source: "window_icons/jorker.svg"
             }
             SequentialAnimation{
                 id:ani
@@ -876,58 +876,7 @@ Window  {
         anchors.top: lefttopctl.bottom
         anchors.topMargin: 15
         anchors.left: lefttopctl.left
-//        anchors.leftMargin: 30
     }
-
-//    Rectangle{
-//        id:m_swiperview
-//        width: 375*windowapp.ratio
-//        height: 178*windowapp.ratio
-//        radius: 10*windowapp.ratio
-//        color: Qt.rgba(150,150,150,0.5)
-
-//        x:400
-//        y:300
-
-//        SwipeView {
-//            id:view
-//            anchors.fill: parent
-//            currentIndex: indicator.currentIndex
-//            clip: true
-//            Repeater{
-//                model: 13
-//                Image {
-//                    source: index+".jpg"
-//                    fillMode: Image.PreserveAspectFit
-//                }
-//            }
-//        }
-
-//        PageIndicator {
-//            id: indicator
-//            interactive: true
-//            count: view.count
-//            currentIndex: view.currentIndex
-
-//            anchors.bottom: view.bottom
-//            anchors.horizontalCenter: parent.horizontalCenter
-//        }
-
-//        Timer{
-//            id:indicator_timer
-//            interval: 2000;
-//            running: true;
-//            repeat: true
-//            onTriggered: {
-//                if (indicator.currentIndex===view.count-1){
-//                    indicator.currentIndex=0
-//                    return
-//                }
-//                indicator.currentIndex=view.currentIndex+1
-//            }
-//        }
-//    }
-
 
 }
 

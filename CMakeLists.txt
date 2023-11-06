@@ -33,74 +33,75 @@ qt_add_qml_module(appfake_wangyiyun_ui
     OpactityBtn.qml
     PopWindow.qml
     MsgPopup.qml
-MySwiperView.qml
+    MySwiperView.qml
+
     # resource
     RESOURCES
-    yyycpcp.png
-    background1.jpg
-    background2.jpg
-    background3.jpg
+    bg_imgs/background1.jpg
+    bg_imgs/background2.jpg
+    bg_imgs/background3.jpg
 
-#    wyyyy.svg
-    wyyyycircle.svg
-    face_wwtj.svg
-    face_yyyjx.svg
-    face_bk.svg
-    face_srmy.svg
-    face_sq.svg
-    face_wxhdyy.svg
-    face_zjbf.svg
-    face_wdbk.svg
-    face_wdsc.svg
-    face_xzsl.svg
-    face_bdyy.svg
-    face_wdyyyp.svg
-    window_close.svg
-    window_max.svg
-    window_min.svg
-    window_reset.svg
-    window_hf.svg
-    window_set.svg
-    window_msg.svg
-    window_mini.svg
-    window_back.svg
-    window_tgsq.svg
-    window_find.svg
-    window_play.svg
-    window_pause.svg
-    window_left.svg
-    window_right.svg
-    window_xdms.svg
-    window_c.svg
-    window_like.svg
-    window_pl.svg
-    window_xz.svg
-    window_gd.svg
-    window_vol_on.svg
-    window_vol_off.svg
-    window_bflb.svg
-    window_yx.svg
-
-    jorker.svg
+    # win icon
+    window_icons/wyyyy.svg
+    window_icons/wyyyycircle.svg
+    window_icons/face_wwtj.svg
+    window_icons/face_yyyjx.svg
+    window_icons/face_bk.svg
+    window_icons/face_srmy.svg
+    window_icons/face_sq.svg
+    window_icons/face_wxhdyy.svg
+    window_icons/face_zjbf.svg
+    window_icons/face_wdbk.svg
+    window_icons/face_wdsc.svg
+    window_icons/face_xzsl.svg
+    window_icons/face_bdyy.svg
+    window_icons/face_wdyyyp.svg
+    window_icons/window_close.svg
+    window_icons/window_max.svg
+    window_icons/window_min.svg
+    window_icons/window_reset.svg
+    window_icons/window_hf.svg
+    window_icons/window_set.svg
+    window_icons/window_msg.svg
+    window_icons/window_mini.svg
+    window_icons/window_back.svg
+    window_icons/window_tgsq.svg
+    window_icons/window_find.svg
+    window_icons/window_play.svg
+    window_icons/window_pause.svg
+    window_icons/window_left.svg
+    window_icons/window_right.svg
+    window_icons/window_xdms.svg
+    window_icons/window_c.svg
+    window_icons/window_like.svg
+    window_icons/window_pl.svg
+    window_icons/window_xz.svg
+    window_icons/window_gd.svg
+    window_icons/window_vol_on.svg
+    window_icons/window_vol_off.svg
+    window_icons/window_bflb.svg
+    window_icons/window_yx.svg
+    window_icons/jorker.svg
 
     # 音乐
     jda-zjl.mp3
 
     jay.png
-    jay2.png
-    0.jpg
-    1.jpg
-    2.jpg
-    3.jpg
-    4.jpg
-    5.jpg
-    6.jpg
-    7.jpg
-    8.jpg
-    9.jpg
-    10.jpg
-    11.jpg
-    12.jpg
+
+    # swip切换的图片
+    swip_imgs/0.jpg
+    swip_imgs/1.jpg
+    swip_imgs/2.jpg
+    swip_imgs/3.jpg
+    swip_imgs/4.jpg
+    swip_imgs/5.jpg
+    swip_imgs/6.jpg
+    swip_imgs/7.jpg
+    swip_imgs/8.jpg
+    swip_imgs/9.jpg
+    swip_imgs/10.jpg
+    swip_imgs/11.jpg
+    swip_imgs/12.jpg
 
 
     RESOURCES resource.qrc
