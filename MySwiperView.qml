@@ -3,9 +3,9 @@ import QtQuick.Controls
 
 Rectangle{
     id:m_swiperview
-    width: 375*windowapp.ratio
-    height: 178*windowapp.ratio
-    radius: 10*windowapp.ratio
+    width: 370/**windowapp.ratio*/
+    height: 178/**windowapp.ratio*/
+    radius: 10/**windowapp.ratio*/
     color: Qt.rgba(150,150,150,0.5)
 
     SwipeView {

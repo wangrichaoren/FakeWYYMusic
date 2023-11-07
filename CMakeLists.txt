@@ -34,6 +34,9 @@ qt_add_qml_module(appfake_wangyiyun_ui
     PopWindow.qml
     MsgPopup.qml
     MySwiperView.qml
+    MyScrollView.qml
+    TextBtn.qml
+    MusicRect.qml
 
     # resource
     RESOURCES
@@ -82,6 +85,9 @@ qt_add_qml_module(appfake_wangyiyun_ui
     window_icons/window_bflb.svg
     window_icons/window_yx.svg
     window_icons/jorker.svg
+    window_icons/jorker1.svg
+    window_icons/404.svg
+    window_icons/refresh.svg
 
     # 音乐
     jda-zjl.mp3
@@ -102,9 +108,11 @@ qt_add_qml_module(appfake_wangyiyun_ui
     swip_imgs/10.jpg
     swip_imgs/11.jpg
     swip_imgs/12.jpg
-
+    swip_imgs/zwddzp.jpg
 
     RESOURCES resource.qrc
+
+    SOURCES FileScanner.h
 
 )
 

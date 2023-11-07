@@ -2,6 +2,11 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import QtMultimedia
+import QtQuick.Layouts
+import QtQuick.Dialogs
+import Qt.labs.platform
+import FileScanner 1.0
+import Qt.labs.settings
 
 Window  {
     property int bw: 3
@@ -9,6 +14,18 @@ Window  {
     property int minheight: 747
     property bool is_play: false
     property double ratio: 1.0
+
+    signal curViewIndex(int idx)
+
+    Settings{
+        id:m_setting
+        fileName: "./setting.ini"
+        property string local_music_path: ""
+    }
+
+    FileScanner{
+        id:file_scanner
+    }
 
     id:windowapp
     width: minwidth
@@ -130,6 +147,12 @@ Window  {
             id:area1
             anchors.fill: parent
             hoverEnabled: true
+            onClicked: {
+                mainView.push(wwtj_view)
+                left_view.currentIndex=0
+            }
+
+
             onEntered: {
                 area1.cursorShape = Qt.PointingHandCursor
             }
@@ -158,7 +181,7 @@ Window  {
             delegate: left_delegate
             spacing: 5
             focus: true
-            //            highlight: Rectangle{color: "lightsteelblue";radius: 7}
+            highlight: Rectangle{color: Qt.rgba(0,0,0,0.0)}
         }
 
         ListModel{
@@ -269,12 +292,18 @@ Window  {
                     ViewBtn{
                         icon_path: m_icon_path
                         text:m_text
+                        onClickBtn: {
+                            left_view.currentIndex=index
+                            windowapp.curViewIndex(left_view.currentIndex)
+                        }
                     }
+
                 }
 
             }
 
         }
+
     }
 
     // 底部 音乐播放栏
@@ -385,6 +414,7 @@ Window  {
                         wind_play.clicked()
                     }
                 }
+
             }
         }
 
@@ -472,6 +502,7 @@ Window  {
                     height: 20
                     color: Qt.rgba(0,0,0,0)
                     Text {
+                        id:music_name
                         anchors.left: parent.left
                         anchors.verticalCenter:parent.verticalCenter
                         font.pixelSize: 16
@@ -737,8 +768,7 @@ Window  {
         IconBoradBtn{
             icon_path: "window_icons/window_back.svg"
             onClicked: {
-                msg_popup.msg="返回功能\n未实现"
-                msg_popup.open()
+                mainView.pop()
             }
         }
 
@@ -872,11 +902,273 @@ Window  {
 
     }
 
-    MySwiperView{
+
+    // 为我推荐view
+    Component{
+        id:wwtj_view
+        MyScrollView{
+            id:wwtj_sc
+            anchors.fill: parent
+            Flow{
+                width:wwtj_sc.width
+                height: wwtj_sc.height
+                spacing: 30
+                MySwiperView{id:swv}
+
+                Rectangle{
+                    width: swv.width
+                    height: swv.height
+                    radius: swv.radius
+                    color: Qt.rgba(150,150,150,0.5)
+                    Image {
+                        source: "swip_imgs/zwddzp.jpg"
+                        anchors.fill: parent
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+                Repeater{
+                    model:12
+                    Rectangle{
+                        width: 170
+                        height: 300
+                        radius: 10
+                        color: Qt.rgba(150,150,150,0.5)
+                        Image {
+                            source: "swip_imgs/"+index+".jpg"
+                            anchors.fill: parent
+                            fillMode: Image.PreserveAspectFit
+                        }
+
+                        MouseArea{
+                            id:area
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            onEntered: {
+                                area.cursorShape = Qt.PointingHandCursor
+                                parent.scale=1.01
+                            }
+                            onExited: {
+                                area.cursorShape = Qt.ArrowCursor
+                                parent.scale=1.0
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    Component{
+        id:yyyjx_view
+        MyScrollView{
+            id:yyyjx_scroll
+            anchors.fill: parent
+            Flow{
+                width:yyyjx_scroll.width
+                height: yyyjx_scroll.height
+                spacing: 30
+                Repeater{
+                    model:60
+                    Rectangle{
+                        width: 200
+                        height: 150
+                        radius: 10
+                        color: Qt.rgba(150,150,150,0.5)
+                        Image {
+                            source: "window_icons/jorker1.svg"
+                            anchors.fill: parent
+                            fillMode: Image.PreserveAspectFit
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Component{
+        id:wsx_view
+        Rectangle{
+            anchors.fill: parent
+            color:Qt.rgba(120,120,120,0.3)
+            border.color: "black"
+            border.width: 2
+            radius: 20
+            Text {
+                anchors.top: parent.top
+                anchors.topMargin: 20
+                anchors.horizontalCenter: parent.horizontalCenter
+                text:"糟糕!失去连接..."
+                font.pixelSize: 40
+                font.bold: true
+                color: "white"
+            }
+
+            Image {
+                anchors.centerIn: parent
+                source: "window_icons/404.svg"
+                sourceSize.width: 400
+                sourceSize.height: 400
+            }
+        }
+    }
+
+    // 本地音乐view
+    Component{
+        id:local_view
+        MyScrollView{
+            id:local_scroll
+            anchors.fill: parent
+
+            Column{
+                width:local_scroll.width
+                height: local_scroll.height
+                spacing: 30
+                Row{
+                    id:music_row
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 80
+                    spacing: 20
+
+                    // 本地音乐的路径选取
+                    TextBtn{
+                        anchors.verticalCenter: parent.verticalCenter
+                        onClickBtn: {
+                            // 选择文件夹
+                            folderDialog.open()
+                        }
+                    }
+
+                    TextBtn{
+                        id:refreshbtn
+                        mw: 40
+                        mh: 40
+                        mrdius: 10
+                        mtxt: "刷新"
+                        anchors.verticalCenter: parent.verticalCenter
+                        onClickBtn: {
+                            // 刷新列表
+                            music_model.clear()
+                            // 加载目录歌曲
+                            var abc=file_scanner.findMp3Files(ttttt.text)
+                            for (var i = 0; i < abc.length; i++) {
+                                //                                console.log("Item at index", i, ":", abc[i]);
+                                music_model.append({name:abc[i]})
+                            }
+
+                        }
+                    }
+
+                    // 文件夹路径显示
+                    Rectangle{
+                        property string ppp: ""
+                        id:fold_path
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: ttttt.width===0?0:ttttt.width+20
+                        height: 40
+                        radius: 3
+                        color:Qt.rgba(0,0,0,0)
+                        border.color: Qt.rgba(150,150,150,0.2)
+                        Text {
+                            id:ttttt
+                            anchors.left: parent.left
+                            anchors.leftMargin: 10
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: m_setting.local_music_path
+                            color:"white"
+                            font.pixelSize: 13
+                        }
+                    }
+
+
+                }
+
+                ListView{
+                    id:music_view
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.top: music_row.bottom
+                    anchors.topMargin: 30
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 10
+                    model: music_model
+                    delegate: music_delagete
+                    spacing: 10
+                }
+
+                ListModel{
+                    id:music_model
+                    Component.onCompleted: {
+                        refreshbtn.clickBtn()
+                    }
+                }
+
+                Component{
+                    id:music_delagete
+
+                    MusicRect{
+                        midx: index
+                        music_path: file_scanner.parseMp3Name(name)
+                        anchors.left:parent.left
+                        anchors.right: parent.right
+
+                        onDbclicked: {
+                            if (!playMusic.playing){
+                                wind_play.clicked()
+                            }
+                            playMusic.source=name
+                            playMusic.play()
+                            music_name.text=file_scanner.parseMp3Name(name)
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+
+    StackView{
+        id:mainView
         anchors.top: lefttopctl.bottom
         anchors.topMargin: 15
         anchors.left: lefttopctl.left
+        anchors.right: move_space.right
+        anchors.rightMargin: 40
+        anchors.bottom: player_ctl.top
+        initialItem:wwtj_view
     }
+
+
+    FolderDialog {
+        id: folderDialog
+        folder: StandardPaths.standardLocations(StandardPaths.MusicLocation)
+        options:FolderDialog.ShowDirsOnly
+        title: "选择本地音乐文件夹"
+        onAccepted: {
+            m_setting.local_music_path=folderDialog.folder.toString().replace("file:///", "")
+            refreshbtn.clickBtn()
+        }
+    }
+
+    onCurViewIndex: {
+        if (idx===0){
+            mainView.push(wwtj_view)
+        }else if (idx===1){
+            mainView.push(yyyjx_view)
+        }else if(idx===11){
+            mainView.push(local_view)
+        }
+
+        else{
+            mainView.push(wsx_view)
+        }
+
+    }
+
+
+
 
 }
 
